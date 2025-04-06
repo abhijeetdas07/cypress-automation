@@ -1,0 +1,42 @@
+{
+  "name": "cypressautomationnew",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run",
+    "headTest": "npx cypress run --headed",
+    "chromeTest": "npx cypress run --headed --browser chrome",
+    "recordDashboardTest": "npx cypress run --record --key 461b23a7-de57-4d8f-a07e-f9728420f5ed",
+    "greenkartTest": "npx cypress run --spec \"cypress/integration/greenkart/*.js\"",
+    "smokeTest": "npx cypress run --spec \"cypress/integration/greenkart/Test1.js\"",
+    "browser:chrome": "npx cypress run --headed --browser=chrome --env allure=true",
+    "generateReport:allure": "allure generate allure-results --clean -o allure-report",
+    "openReport:allure": "allure open  allure-report"
+  },
+  "cypress-cucumber-preprocessor": {
+    "json": {
+      "enabled": true,
+      "output": "cypress/cucumberReports/results.json"
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@shelex/cypress-allure-plugin": "^2.40.2",
+    "allure-commandline": "^2.32.0",
+    "cypress": "^12.17.4",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mochawesome-reporter": "^3.8.2",
+    "cypress-sql-server": "^1.0.0",
+    "exceljs": "^4.4.0",
+    "mocha-allure-reporter": "^1.4.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^21.0.3",
+    "@cypress/browserify-preprocessor": "latest",
+    "convert-excel-to-json": "^1.7.0",
+    "multiple-cucumber-html-reporter": "^3.8.0",
+    "neat-csv": "5.1.0"
+  }
+}
