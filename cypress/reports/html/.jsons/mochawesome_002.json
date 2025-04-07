@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-04-06T12:20:56.139Z",
+    "end": "2025-04-06T12:21:10.622Z",
+    "duration": 14483,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d69b31a3-bbc2-49fb-a420-a89a34449abe",
+      "title": "",
+      "fullFile": "cypress\\integration\\examples\\ExcelTaskValidations.js",
+      "file": "cypress\\integration\\examples\\ExcelTaskValidations.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5ca0a79e-4d3b-4d77-b0af-6f79cc95b3f6",
+          "title": "Jwt session",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "logged in through local storage",
+              "fullTitle": "Jwt session logged in through local storage",
+              "timedOut": null,
+              "duration": 4764,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-videos-failed\",\n  \"value\": \"cypress\\\\integration\\\\examples\\\\ExcelTaskValidations.js\"\n}",
+              "code": "cy.loginAPI().then(/*#__PURE__*/(0, _asyncToGenerator2[\"default\"])(/*#__PURE__*/_index[\"default\"].mark(function _callee() {\n  return _index[\"default\"].wrap(function _callee$(_context) {\n    while (1) switch (_context.prev = _context.next) {\n      case 0:\n        cy.visit('https://rahulshettyacademy.com/client/', {\n          onBeforeLoad: function onBeforeLoad(window) {\n            window.localStorage.setItem('token', Cypress.env('token'));\n          }\n        });\n      case 1:\n      case \"end\":\n        return _context.stop();\n    }\n  }, _callee);\n})));\nvar productName = '';\ncy.get('[style=\"text-transform: uppercase;\"]').eq(1).then(function (product) {\n  productName = product.text();\n});\ncy.get('.card-body button:last-of-type').eq(1).click();\ncy.get('[routerlink*=\"cart\"]').click();\ncy.contains(\"Checkout\").click();\ncy.get('[placeholder*=\"Country\"]').type('India');\ncy.get('.list-group button').each(function ($el, index, $list) {\n  if ($el.text() == \" India\") {\n    cy.wrap($el).click();\n  }\n});\ncy.get('.action__submit').click();\ncy.contains('button', \"Click To Download Order Details in Excel\").click();\nvar filePath = Cypress.config(\"fileServerFolder\") + \"/cypress/downloads/order-invoice_abhijeet.das.07.csv\";\ncy.task('excelToJsonConverter', filePath).then(function (result) {\n  cy.log(result.data[1].A);\n  expect(productName).to.equal(result.data[1].B);\n});\n//To verify the text present in file \ncy.readFile(filePath).then(function (text) {\n  expect(text).to.includes(productName);\n});",
+              "err": {
+                "message": "CypressError: `cy.task('excelToJsonConverter')` failed with the following error:\n\n> ENOENT: no such file or directory, open 'C:\\Users\\Abhijeet Das\\CypressAutomationNew/cypress/downloads/order-invoice_abhijeet.das.07.csv'\n\nhttps://on.cypress.io/api/task",
+                "estack": "CypressError: `cy.task('excelToJsonConverter')` failed with the following error:\n\n> ENOENT: no such file or directory, open 'C:\\Users\\Abhijeet Das\\CypressAutomationNew/cypress/downloads/order-invoice_abhijeet.das.07.csv'\n\nhttps://on.cypress.io/api/task\n    at <unknown> (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:134597:70)\n    at tryCatcher (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:1807:23)\n    at Promise._settlePromiseFromHandler (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:1519:31)\n    at Promise._settlePromise (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:1576:18)\n    at Promise._settlePromise0 (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:1621:10)\n    at Promise._settlePromises (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:1697:18)\n    at _drainQueueStep (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:2407:12)\n    at _drainQueue (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:2400:9)\n    at Async._drainQueues (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:2416:5)\n    at Async.drainQueues (https://rahulshettyacademy.com/__cypress/runner/cypress_runner.js:2286:14)\nFrom Your Spec Code:\n    at Context.eval (cypress/integration/examples/ExcelTaskValidations.js:33:11)\n\nFrom Node.js Internals:\n  Error: ENOENT: no such file or directory, open 'C:\\Users\\Abhijeet Das\\CypressAutomationNew/cypress/downloads/order-invoice_abhijeet.das.07.csv'\n      at Object.openSync (node:fs:600:3)\n      at Object.readFileSync (node:fs:468:35)\n      at excelToJsonConverter (C:\\Users\\Abhijeet Das\\CypressAutomationNew\\cypress.config.js:34:20)\n      at invoke (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\child\\run_plugins.js:246:16)\n      at C:\\Users\\Abhijeet (Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\util.js:59:14)\n      at tryCatcher (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\util.js:16:23)\n      at Function.Promise.attempt.Promise.try (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\bluebird\\js\\release\\method.js:39:29)\n      at Object.wrapChildPromise (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\util.js:58:23)\n      at RunPlugins.taskExecute (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\child\\run_plugins.js:252:10)\n      at RunPlugins.execute (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\child\\run_plugins.js:166:21)\n      at EventEmitter.<anonymous> (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\child\\run_plugins.js:56:12)\n      at EventEmitter.emit (node:events:513:28)\n      at EventEmitter.emit (node:domain:489:12)\n      at process.<anonymous> (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@packages\\server\\lib\\plugins\\util.js:33:22)\n      at process.emit (node:events:525:35)\n      at process.emit (node:domain:489:12)\n      at process.emit.sharedData.processEmitHook.installedValue [as emit] (C:\\Users\\Abhijeet Das\\AppData\\Local\\Cypress\\Cache\\12.17.4\\Cypress\\resources\\app\\node_modules\\@cspotcode\\source-map-support\\source-map-support.js:745:40)\n      at emit (node:internal/child_process:937:14)\n      at processTicksAndRejections (node:internal/process/task_queues:83:21)",
+                "diff": null
+              },
+              "uuid": "8f34827f-7c59-4524-9138-f4518a9155c3",
+              "parentUUID": "5ca0a79e-4d3b-4d77-b0af-6f79cc95b3f6",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "8f34827f-7c59-4524-9138-f4518a9155c3"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 4764,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
